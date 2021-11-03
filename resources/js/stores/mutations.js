@@ -27,6 +27,14 @@ export default {
             el.isFavourite = false;
         });
     },
+    removeDeliveredProductsFromList: state => {
+        state.products.filter(product => {
+                if (product.isAddedToCart) {
+                    product.status = 'Delivered'
+                }
+            }
+        );
+    },
     isUserLoggedIn: (state, isUserLoggedIn) => {
         state.userInfo.isLoggedIn = isUserLoggedIn;
     },

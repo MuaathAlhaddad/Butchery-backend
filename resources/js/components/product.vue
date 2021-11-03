@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <img class="card-img-top" src="https://via.placeholder.com/250" alt="Placeholder image">
+        <img class="card-img-top" :src="product.image" alt="Placeholder image">
 
         <div class="card-body ">
             <div class="row justify-content-between">

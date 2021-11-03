@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::fallback(function (){
+    return redirect()->route('products.index');
+});
 
 Route::redirect('/', '/login');
 Route::get('/home', function () {

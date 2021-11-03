@@ -1,13 +1,17 @@
 <template>
+  <div>
     <div class="container">
-        <!--        Search Engine     -->
-        <div class="row mb-2">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-alternative" style="border-radius: 25px; text-align: center;" placeholder="Input Meat Code here ...">
-                </div>
-            </div>
-        </div>
+
+      <div class="d-flex flex-row-reverse">
+
+        <router-link
+            v-show="(productsAdded.length > 0)"
+            class="btn btn-danger "
+            :to="{name: 'checkout'}">
+          Checkout
+        </router-link>
+      </div>
+
         <!--        Products    -->
         <div class="row text-center  justify-content-around">
                 <div class="card col-sm-3 p-0" v-for="product in products" :key="product.id">
@@ -18,6 +22,17 @@
                 </div>
         </div>
     </div>
+    <hr>
+    <footer class="container bg-secondary" style="margin-top: 100px">
+      <div class="d-flex justify-content-center ">
+        <router-link
+            class="btn btn-link "
+            :to="{name: 'conditions'}">
+          privacy and conditions
+        </router-link>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -40,8 +55,11 @@ export default {
             if (this.$store.state.userInfo.hasSearched) {
                 return this.getProductByTitle();
             } else {
-                return this.$store.state.products;
+              return this.$store.state.products.filter(product => product.status !== 'Delivered');
             }
+        },
+        productsAdded() {
+          return this.$store.getters.productsAdded;
         }
     },
 
