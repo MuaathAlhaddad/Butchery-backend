@@ -54,3 +54,11 @@ Route::group(['middleware' => 'auth'], function () {
     // Products
     Route::resource('products', 'ProductController');
 });
+
+
+Route::get( 'getRole', function () {
+
+    $role = Auth::User()?->roles->first()->name ?? 'not loggined';
+
+    return json_encode( [ 'role' => $role ] );
+} );

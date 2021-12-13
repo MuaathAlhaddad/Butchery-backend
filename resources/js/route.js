@@ -5,6 +5,7 @@ import ProductsIndex from "./pages/products-index.vue";
 import Checkout from "./pages/checkout.vue";
 import Shipping from "./pages/shipping.vue";
 import Conditions from './pages/conditions.vue'
+import Payment from './pages/payment.vue';
 Vue.use(Router)
 
 
@@ -23,7 +24,8 @@ export default new Router({
                 {
                     path: "/products",
                     component: ProductsIndex,
-                    name: "products_index"
+                    name: "products_index",
+                    props: {role: false},
                 },
                 {
                     path: "/products/:id?",
@@ -44,6 +46,11 @@ export default new Router({
                     path: "/conditions",
                     component: Conditions,
                     name: "conditions"
+                },
+                {
+                    path: "/payment",
+                    component: Payment,
+                    name: "payment"
                 },
             ],
 

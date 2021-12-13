@@ -145,6 +145,6 @@ class RolesAndPermissionsSeeder extends Seeder
             'email' => 'butcher@example.com',
             'password' => Hash::make('password')
         ]);
-        $user->assignRole('user');
+        $user->assignRole('butcher');
     }
 }

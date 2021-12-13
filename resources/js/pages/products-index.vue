@@ -2,6 +2,10 @@
   <div>
     <div class="container">
 
+      <div v-if="role !== 'user'" class="container">
+        <create-item/>
+      </div>
+
       <div class="d-flex flex-row-reverse">
 
         <router-link
@@ -37,16 +41,19 @@
 
 <script>
 import Product from "../components/product";
+import CreateItem from "../components/CreateItem.vue";
+
 export default {
     name: "products-index",
 
-    components: { Product },
+    components: { Product, CreateItem},
 
     data () {
         return {
             id: '',
             noProductLabel: 'No product found',
             productsFiltered: [],
+            role: ''
         };
     },
 
@@ -70,7 +77,12 @@ export default {
         //
         //     return this.productsFiltered = getByTitle(listOfProducts, titleSearched);
         // }
-    }
+    },
+  created() {
+    fetch("http://127.0.0.1:8000/getRole")
+        .then(response => response.json())
+        .then(data => (this.role = data.role));
+  }
 }
 </script>
 
