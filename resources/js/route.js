@@ -4,6 +4,7 @@ import ProductsShow from "./pages/products-show.vue";
 import ProductsIndex from "./pages/products-index.vue";
 import Checkout from "./pages/checkout.vue";
 import Shipping from "./pages/shipping.vue";
+import ShippingForm from './pages/shipping-form';
 import Conditions from './pages/conditions.vue'
 import Payment from './pages/payment.vue';
 Vue.use(Router)
@@ -36,6 +37,11 @@ export default new Router({
                     path: "/checkout",
                     component: Checkout,
                     name: "checkout"
+                },
+                {
+                    path: "/shipping-form",
+                    component: ShippingForm,
+                    name: "shipping-form"
                 },
                 {
                     path: "/shipping",

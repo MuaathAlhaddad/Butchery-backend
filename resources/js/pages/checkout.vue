@@ -19,9 +19,9 @@
 
             <div class="d-flex flex-row-reverse">
               <router-link
-                  :to="{name: 'payment'}"
+                  :to="{name: 'shipping-form'}"
                   class="btn btn-primary mt-4">
-                Payment
+                Shipping
               </router-link>
             </div>
           </div>
